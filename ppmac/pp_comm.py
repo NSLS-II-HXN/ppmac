@@ -241,6 +241,7 @@ class ShellChannel(object):
         with self.lock:
             vlog(self._verbose, '-> %s' % line)
             channel.send('%s%s' % (line, delim))
+            #print("GPASCII: %s"%line)
 
         if sync:
             self.sync()
@@ -809,7 +810,7 @@ class PPComm(object):
         self._client = paramiko.SSHClient()
         self._client.set_missing_host_key_policy(paramiko.AutoAddPolicy())
         self._client.connect(self._host, self._port,
-                             username=self._user, password=self._pass)
+                             username=self._user, password=self._pass, allow_agent=False, look_for_keys=False)
 
         self.gpascii = self.gpascii_channel()
         self._sftp = None

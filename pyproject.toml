@@ -1,0 +1,48 @@
+[build-system]
+requires = ["setuptools>=64", "setuptools_scm[toml]>=7"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "ppmac"
+dynamic = ["version"]
+description = "Power PMAC Linux/Python tools for NSLS-II HXN"
+readme = "README.md"
+requires-python = ">=3.10"
+license = "BSD-3-Clause"
+authors = [
+    {name = "Brookhaven National Laboratory", email = "DAMA@bnl.gov"}
+]
+classifiers = [
+    "Development Status :: 5 - Production/Stable",
+    "Intended Audience :: Science/Research",
+    "Intended Audience :: Developers",
+    "Natural Language :: English",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3 :: Only",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Scientific/Engineering",
+]
+dependencies = [
+    "paramiko>=1.13",
+    "numpy>=1.8",
+    "six",
+]
+
+[project.urls]
+Homepage = "https://github.com/NSLS-II-HXN/ppmac"
+"Bug Tracker" = "https://github.com/NSLS-II-HXN/ppmac/issues"
+Changelog = "https://github.com/NSLS-II-HXN/ppmac/releases"
+
+[tool.setuptools]
+include-package-data = true
+
+[tool.setuptools.packages.find]
+where = ["src"]
+include = ["ppmac*"]
+
+[tool.setuptools_scm]
+write_to = "src/ppmac/_version.py"

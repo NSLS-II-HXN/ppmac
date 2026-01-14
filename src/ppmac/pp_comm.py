@@ -59,9 +59,9 @@ class ScriptCancelled(ScriptFailed):
     pass
 
 
-PPMAC_MESSAGES = [re.compile('.*\/\/ \*\*\* exit'),
+PPMAC_MESSAGES = [re.compile(r'.*\/\/ \*\*\* exit'),
                   re.compile('^UnlinkGatherThread:.*'),
-                  re.compile('^\/\/ \*\*\* EOF'),
+                  re.compile(r'^\/\/ \*\*\* EOF'),
                   ]
 
 
@@ -398,7 +398,7 @@ class GpasciiChannel(ShellChannel):
                 # <- #3->0
                 # (None, None, '3', '0')
 
-                m = re.search('(&(\d+))?#(\d+)->([a-zA-Z0-9]+)', line)
+                m = re.search(r'(&(\d+))?#(\d+)->([a-zA-Z0-9]+)', line)
                 if not m:
                     continue
 
